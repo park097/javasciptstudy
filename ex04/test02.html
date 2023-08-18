@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let promise = new Promise((success,fail)=>{
+            setTimeout(() => {
+                console.log("실행1");
+                fail; //이걸 호출해줘야 다음  then이실행됨
+            }, 5000);
+        }).then(()=>{
+            setTimeout(() => {
+                console.log("실행2");
+                //이래야 다음 then 이 실행 안됨
+            }, 5000);
+       
+        }).catch(()=>{
+            console.log("오류");
+        });
+    </script>
+</body>
+</html>
